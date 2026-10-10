@@ -150,18 +150,23 @@ input:focus-visible {
 .nav-link {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 7px;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--muted);
   padding: 6px 0;
   border-bottom: 2px solid transparent;
   transition: color 0.15s ease, border-bottom-color 0.15s ease;
+  white-space: nowrap;
 }
 
-.nav-idx {
+.nav-link .icon-svg {
+  width: 14px;
+  height: 14px;
   color: var(--sage);
+  flex-shrink: 0;
+  transition: color 0.15s ease;
 }
 
 .nav-link:hover {
@@ -169,10 +174,18 @@ input:focus-visible {
   border-bottom-color: var(--sage);
 }
 
+.nav-link:hover .icon-svg {
+  color: var(--sage-hover);
+}
+
 .nav-link.active {
   color: var(--ink);
   border-bottom-color: var(--sage);
   font-weight: 700;
+}
+
+.nav-link.active .icon-svg {
+  color: var(--sage-hover);
 }
 
 .header-status {

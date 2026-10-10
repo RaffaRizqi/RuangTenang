@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ruangtenang-cache-v7';
+const CACHE_NAME = 'ruangtenang-cache-v8';
 const ASSETS = [
   './',
   './index.html',
@@ -6,8 +6,8 @@ const ASSETS = [
   './jurnal.html',
   './bantuan.html',
   './panduan.html',
-  './style.css?v=7.0',
-  './script.js?v=7.0',
+  './style.css?v=8.0',
+  './script.js?v=8.0',
   './manifest.json',
   './icon.svg'
 ];
