@@ -1,13 +1,17 @@
-const CACHE_NAME = 'ruangtenang-cache-v8';
+const CACHE_NAME = 'ruangtenang-cache-v9';
 const ASSETS = [
   './',
   './index.html',
+  './napas',
   './napas.html',
+  './jurnal',
   './jurnal.html',
+  './bantuan',
   './bantuan.html',
+  './panduan',
   './panduan.html',
-  './style.css?v=8.0',
-  './script.js?v=8.0',
+  './style.css?v=9.0',
+  './script.js?v=9.0',
   './manifest.json',
   './icon.svg'
 ];
@@ -42,9 +46,15 @@ self.addEventListener('fetch', evt => {
         return response;
       }).catch(() => {
         if (cached) return cached;
-        if (evt.request.mode === 'navigate') {
-          return caches.match('./index.html');
-        }
+        const url = new URL(evt.request.url);
+        const path = url.pathname.replace(/\/$/, '');
+        const fallback = path + '.html';
+        return caches.match(fallback).then(fb => {
+          if (fb) return fb;
+          if (evt.request.mode === 'navigate') {
+            return caches.match('./index.html');
+          }
+        });
       });
     })
   );

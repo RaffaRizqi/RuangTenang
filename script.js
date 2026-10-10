@@ -803,3 +803,16 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js').catch(() => {});
   });
 }
+
+if (window.location.protocol === 'file:') {
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a[href]').forEach(a => {
+      const h = a.getAttribute('href');
+      if (h && !h.startsWith('http') && !h.startsWith('#') && !h.includes('.')) {
+        const parts = h.split('#');
+        const base = (parts[0] === '/' || parts[0] === './') ? 'index.html' : parts[0] + '.html';
+        a.setAttribute('href', parts[1] ? base + '#' + parts[1] : base);
+      }
+    });
+  });
+}
