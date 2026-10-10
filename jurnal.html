@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f9f6">
+  <meta name="description" content="Jurnal suasana hati dan mood tracker untuk remaja. Catat perasaan, lihat grafik emosi, dan jaga privasi dengan kunci PIN lokal.">
+  <title>Jurnal Suasana Hati & Mood Tracker Remaja — RuangTenang</title>
+  <meta property="og:title" content="Jurnal Suasana Hati & Mood Tracker Remaja — RuangTenang">
+  <meta property="og:description" content="Catat perasaanmu setiap hari dengan jurnal suasana hati RuangTenang. Grafik tren emosi, kunci privasi PIN, dan pencarian catatan.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:site_name" content="RuangTenang">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Jurnal Suasana Hati & Mood Tracker Remaja — RuangTenang">
+  <meta name="twitter:description" content="Jurnal suasana hati pribadi untuk remaja. Grafik emosi, kunci PIN, dan pencarian catatan.">
+  <link rel="canonical" href="jurnal.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css?v=5.0">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.json">
+  <script src="./script.js?v=5.0" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "RuangTenang Jurnal Suasana Hati",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "All",
+    "description": "Jurnal suasana hati pribadi untuk remaja Indonesia dengan grafik tren emosi, kunci privasi PIN lokal, dan fitur pencarian catatan. Data tersimpan 100% di perangkat.",
+    "inLanguage": "id",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "IDR"
+    }
+  }
+  </script>
+</head>
+<body data-page="journal">
+  <a href="#konten" class="skip-link">Loncat ke konten utama</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="RuangTenang, beranda utama">
+        <span class="brand-mark" aria-hidden="true">rt.</span>
+        <span class="brand-name">ruangtenang</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigasi sistem">
+        <a href="index.html" class="nav-link"><span class="nav-idx">[00]</span> Beranda</a>
+        <a href="napas.html" class="nav-link"><span class="nav-idx">[01]</span> Studio Napas</a>
+        <a href="jurnal.html" class="nav-link active" aria-current="page"><span class="nav-idx">[02]</span> Jurnal &amp; Tren</a>
+        <a href="bantuan.html" class="nav-link"><span class="nav-idx">[03]</span> Direktori Bantuan</a>
+        <a href="panduan.html" class="nav-link"><span class="nav-idx">[04]</span> Panduan Remaja</a>
+      </nav>
+
+      <div class="header-status">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span class="status-label">Modul 02: Jurnal &amp; Tren</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="konten">
+    <section class="page-intro">
+      <div class="intro-topline">
+        <span>MODUL 02 // LOG EMOSI MANDIRI &amp; ANALITIK</span>
+        <span>100% TERSIMPAN DI PERANGKAT</span>
+      </div>
+      <div class="page-header-wrap">
+        <div>
+          <p class="eyebrow">REFLEKSI TANPA PENILAIAN</p>
+          <h1 class="page-title">Jurnal Suasana Hati &amp; Tren</h1>
+        </div>
+        <div class="pin-controls-wrap">
+          <button class="btn btn-outline" id="pinToggleBtn" type="button">
+            <span id="pinBtnIcon" aria-hidden="true">&#128274;</span>
+            <span id="pinBtnLabel">Kunci Privasi PIN</span>
+          </button>
+        </div>
+      </div>
+      <p class="page-desc">
+        Mengenali dan menamai apa yang kamu rasakan adalah langkah awal untuk meredakan ketegangan mental. Data tersimpan aman di browser perangkat ini dan tidak pernah dikirimkan ke server mana pun.
+      </p>
+    </section>
+
+    <div class="pin-lock-modal" id="pinModal" role="dialog" aria-modal="true" aria-labelledby="pinModalTitle" aria-describedby="pinModalDesc" hidden>
+      <div class="modal-card">
+        <div class="modal-header">
+          <p class="modal-heading" id="pinModalTitle">Atur Kunci Privasi PIN</p>
+          <button class="modal-close-btn" id="closePinModalBtn" type="button" aria-label="Tutup popup PIN">&times;</button>
+        </div>
+        <p class="modal-desc" id="pinModalDesc">
+          Buat 4 angka PIN agar catatanmu terlindungi saat ada orang lain yang meminjam ponselmu.
+        </p>
+        <form id="pinForm" novalidate>
+          <div class="pin-input-group">
+            <input type="password" id="pinInput" maxlength="4" pattern="[0-9]*" inputmode="numeric" placeholder="4 Angka PIN" required>
+            <button class="btn btn-primary" type="submit" id="pinSubmitBtn">Simpan PIN</button>
+          </div>
+          <p class="form-feedback" id="pinFeedback" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+
+    <div class="journal-layout-grid">
+      <div class="journal-column-left">
+        <article class="panel">
+          <div class="panel-topline">
+            <span class="panel-tag">[ TULIS CATATAN BARU ]</span>
+            <span class="panel-spec">HARI INI</span>
+          </div>
+
+          <form id="journalForm" class="journal-form" novalidate>
+            <fieldset class="mood-section">
+              <legend class="field-label">Bagaimana perasaanmu saat ini?</legend>
+              <div class="mood-selector" role="group" aria-label="Pilihan suasana hati">
+                <button class="mood-button" type="button" data-mood="Tenang" aria-pressed="false">
+                  <span class="mood-tag">#01</span>
+                  <span class="mood-title">Tenang</span>
+                </button>
+                <button class="mood-button" type="button" data-mood="Lega" aria-pressed="false">
+                  <span class="mood-tag">#02</span>
+                  <span class="mood-title">Lega</span>
+                </button>
+                <button class="mood-button" type="button" data-mood="Cemas" aria-pressed="false">
+                  <span class="mood-tag">#03</span>
+                  <span class="mood-title">Cemas</span>
+                </button>
+                <button class="mood-button" type="button" data-mood="Sedih" aria-pressed="false">
+                  <span class="mood-tag">#04</span>
+                  <span class="mood-title">Sedih</span>
+                </button>
+                <button class="mood-button" type="button" data-mood="Lelah" aria-pressed="false">
+                  <span class="mood-tag">#05</span>
+                  <span class="mood-title">Lelah</span>
+                </button>
+              </div>
+            </fieldset>
+
+            <div class="input-block">
+              <div class="input-meta">
+                <label class="field-label" for="journalText">Tuliskan isi pikiranmu:</label>
+                <span class="char-count" id="characterCount">0 / 1.200</span>
+              </div>
+              <textarea
+                id="journalText"
+                name="journalText"
+                rows="5"
+                maxlength="1200"
+                placeholder="Apa yang terjadi hari ini? Apa yang membuatmu merasa seperti itu? Tuliskan saja apa adanya..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">
+                <span>Simpan Catatan</span>
+                <span class="btn-arrow" aria-hidden="true">&crarr;</span>
+              </button>
+              <button class="btn btn-outline" id="clearFormBtn" type="button">
+                <span>Kosongkan Form</span>
+              </button>
+            </div>
+
+            <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
+          </form>
+        </article>
+
+        <article class="panel analytics-panel">
+          <div class="panel-topline">
+            <span class="panel-tag">[ ANALITIK TREN EMOSI ]</span>
+            <span class="panel-spec">DISTRIBUSI SUASANA HATI</span>
+          </div>
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">POLA PERASAAN</p>
+              <h2>Peta Emosi yang Tercatat</h2>
+            </div>
+          </div>
+          <p class="panel-desc">
+            Visualisasi frekuensi emosi berdasarkan riwayat catatan yang tersimpan di perangkatmu (SVG murni, kalkulasi langsung):
+          </p>
+
+          <div class="chart-wrapper" id="moodChartContainer" aria-label="Grafik distribusi suasana hati" role="img">
+            <svg id="moodChartSvg" viewBox="0 0 500 220" width="100%" height="220" xmlns="http://www.w3.org/2000/svg">
+              <text x="250" y="110" text-anchor="middle" fill="#87948A" font-family="'IBM Plex Mono', monospace" font-size="12">Belum ada data untuk dihitung</text>
+            </svg>
+          </div>
+
+          <div class="chart-legend" id="chartLegend"></div>
+        </article>
+      </div>
+
+      <div class="journal-column-right">
+        <article class="panel vault-panel">
+          <div class="panel-topline">
+            <span class="panel-tag">[ ARSIP RIWAYAT CATATAN ]</span>
+            <span class="panel-spec" id="entryCount">0 CATATAN</span>
+          </div>
+
+          <div class="vault-tools-bar">
+            <div class="search-box">
+              <input type="search" id="searchJournalInput" placeholder="Cari kata di catatan..." aria-label="Cari isi catatan">
+            </div>
+            <div class="data-mgmt-btns">
+              <button class="btn-export" id="exportDataBtn" type="button" title="Unduh arsip catatan ke format JSON">
+                Ekspor (.JSON)
+              </button>
+              <label class="btn-export import-label" title="Pulihkan catatan dari file JSON cadangan">
+                Impor (.JSON)
+                <input type="file" id="importFileInput" accept=".json" hidden>
+              </label>
+            </div>
+          </div>
+
+          <div class="mood-filter-strip" role="group" aria-label="Filter catatan berdasarkan emosi">
+            <button class="filter-pill active" type="button" data-filter="all" aria-pressed="true">Semua</button>
+            <button class="filter-pill" type="button" data-filter="Tenang" aria-pressed="false">Tenang</button>
+            <button class="filter-pill" type="button" data-filter="Lega" aria-pressed="false">Lega</button>
+            <button class="filter-pill" type="button" data-filter="Cemas" aria-pressed="false">Cemas</button>
+            <button class="filter-pill" type="button" data-filter="Sedih" aria-pressed="false">Sedih</button>
+            <button class="filter-pill" type="button" data-filter="Lelah" aria-pressed="false">Lelah</button>
+          </div>
+
+          <div class="vault-disclaimer">
+            Catatanmu tersimpan di penyimpanan browser perangkat ini dan dapat terhapus jika riwayat dibersihkan. Gunakan fitur ekspor secara berkala untuk mencadangkan catatanmu.
+          </div>
+
+          <div class="journal-list" id="journalList" aria-live="polite"></div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand-wrap">
+        <a class="brand footer-brand" href="index.html" aria-label="RuangTenang">
+          <span class="brand-mark" aria-hidden="true">rt.</span>
+          <span class="brand-name">ruangtenang</span>
+        </a>
+        <p class="footer-tagline">Pelan-pelan juga tetap bergerak.</p>
+      </div>
+
+      <div class="footer-info">
+        <span>SISTEM KESEHATAN MENTAL REMAJA INDONESIA &bull; 100% BEBAS PELACAK &bull; HTML + CSS + JS MURNI</span>
+      </div>
+
+      <div class="footer-meta">
+        <span class="footer-copy">&copy; 2026 RUANGTENANG</span>
+        <span class="footer-note">Bukan pengganti penanganan klinis medis.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

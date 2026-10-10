@@ -1,0 +1,18 @@
+{
+  "name": "RuangTenang — Ruang Jeda Remaja",
+  "short_name": "RuangTenang",
+  "description": "Aplikasi kesehatan mental terpadu untuk remaja Indonesia. Latihan napas terpandu, jurnal suasana hati, dan kontak bantuan darurat.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F7F9F6",
+  "theme_color": "#F7F9F6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
