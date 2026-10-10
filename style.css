@@ -333,20 +333,31 @@ main {
 
 .btn {
   display: inline-flex;
-  min-height: 48px;
+  min-height: 46px;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 0 20px;
+  gap: 8px;
+  padding: 10px 16px;
   border: 1px solid transparent;
   cursor: pointer;
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   text-decoration: none;
-  white-space: nowrap;
+  line-height: 1.35;
+  text-align: center;
+  box-sizing: border-box;
+  max-width: 100%;
+  word-break: normal;
+  overflow-wrap: break-word;
   transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.08s ease;
+}
+
+.btn > span:not(.btn-arrow) {
+  display: inline-block;
+  line-height: 1.35;
+  text-align: center;
 }
 
 .btn:active:not(:disabled) {
@@ -448,17 +459,18 @@ main {
 
 .module-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   gap: 20px;
 }
 
 .module-card {
   background: var(--surface);
   border: 1px solid var(--line-strong);
-  padding: 26px;
+  padding: clamp(18px, 3.5vw, 26px);
   display: flex;
   flex-direction: column;
   gap: 14px;
+  box-sizing: border-box;
   transition: border-color 0.15s ease;
 }
 
@@ -1334,17 +1346,18 @@ textarea::placeholder {
 
 .support-directory {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   gap: 20px;
 }
 
 .support-card {
   background: var(--surface);
   border: 1px solid var(--line-strong);
-  padding: 24px;
+  padding: clamp(16px, 3vw, 24px);
   display: flex;
   flex-direction: column;
   gap: 12px;
+  box-sizing: border-box;
 }
 
 .support-card.support-card-warm {
@@ -1410,7 +1423,7 @@ textarea::placeholder {
 
 .pfa-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
   gap: 16px;
   margin-top: 16px;
 }
@@ -1787,10 +1800,19 @@ textarea::placeholder {
   .main-nav {
     width: 100%;
     order: 3;
-    justify-content: space-between;
+    display: flex;
+    justify-content: flex-start;
+    gap: 14px;
     padding-top: 8px;
+    padding-bottom: 4px;
     border-top: 1px solid var(--line);
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .main-nav::-webkit-scrollbar {
+    display: none;
   }
 
   .stepper-strip {
@@ -1799,6 +1821,16 @@ textarea::placeholder {
 
   .btn {
     width: 100%;
+    padding: 11px 14px;
+    font-size: 12px;
+  }
+
+  .support-card {
+    padding: 16px;
+  }
+
+  .module-card {
+    padding: 18px;
   }
 
   .mood-selector {
@@ -1811,6 +1843,42 @@ textarea::placeholder {
 
   .panel-actions {
     flex-direction: column;
+  }
+
+  .vault-tools-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .search-box input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .data-mgmt-btns {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .filter-group {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .filter-group::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-pill {
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 }
 
