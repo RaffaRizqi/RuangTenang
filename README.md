@@ -16,7 +16,7 @@ RuangTenang dirancang untuk menjawab kesenjangan akses dukungan kesehatan mental
 - Sintesis Audio Prosedural: Pemicu audio relaksasi napas dibangkitkan secara langsung melalui Web Audio API tanpa file audio eksternal.
 - Visualisasi Vektor Prosedural: Grafik analitik emosi digambar melalui manipulasi DOM SVG murni menggunakan kalkulasi rasio geometris real-time.
 - Kesiapan Progressive Web App (PWA): Didukung Service Worker cache-first dengan strategi offline navigation fallback.
-- Optimasi Mesin Pencari & AI (SEO/GEO): Dilengkapi 5 skema JSON-LD terstruktur, robots.txt ramah AI search crawler, sitemap.xml, dan llms.txt.
+- Optimasi Mesin Pencari (SEO): Dilengkapi 5 skema JSON-LD terstruktur, Open Graph, Twitter Cards, dan rel canonical tags.
 
 ---
 
@@ -79,19 +79,16 @@ Grafik sebaran emosi pada jurnal dibangun tanpa Chart.js:
 - Berkas sw.js mengelola caching aset inti (HTML, CSS, JS, manifest, SVG icon) dengan skema cache-first.
 - Offline Navigation Fallback: Permintaan navigasi baru saat perangkat luring secara otomatis dialihkan ke cache index.html, mencegah munculnya halaman galat bawaan peramban.
 
-### G. Infrastruktur SEO & GEO (Generative Engine Optimization)
+### G. Optimasi Mesin Pencari (SEO & Metadata)
 - Structured Data: Skema JSON-LD spesifik pada setiap halaman (WebApplication, HowTo, SoftwareApplication, FAQPage).
 - Meta Tag Lengkap: Title teroptimasi (47-61 karakter), meta description terarah (127-135 karakter), Open Graph, Twitter Cards, dan rel canonical.
-- robots.txt: Izin eksplisit untuk AI search crawler (Googlebot, OAI-SearchBot, Claude-SearchBot, PerplexityBot, ChatGPT-User).
-- llms.txt: Dokumentasi terstruktur untuk konsumsi AI agents dan crawler LLM.
-- sitemap.xml: Peta situs valid dengan indeks seluruh halaman, bobot prioritas, dan tanggal pembaruan.
 
 ---
 
 ## 4. Struktur Berkas Repositori
 
 ```
-d:/lomba senior dev/
+RuangTenang/
 |-- index.html          # Dasbor Pusat & Modul 00
 |-- napas.html          # Studio Latihan Napas (Modul 01)
 |-- jurnal.html         # Jurnal & Analitik Emosi (Modul 02)
@@ -102,12 +99,8 @@ d:/lomba senior dev/
 |-- sw.js               # Service Worker PWA & Offline Cache
 |-- manifest.json       # Manifest Web Application
 |-- icon.svg            # Aset Vektor Ikon Aplikasi
-|-- robots.txt          # Konfigurasi Akses Mesin Pencari & AI Crawlers
-|-- sitemap.xml         # Peta Situs Mesin Pencari
-|-- llms.txt            # Spesifikasi Terstruktur untuk Agen LLM
-|-- GEO-ANALYSIS.md     # Laporan Kesiapan Optimasi AI Search (Skor 94/100)
-|-- README.md           # Dokumentasi Rekayasa & Panduan Teknis
-`-- AGENTS.md           # Aturan & Konstrain Desain Proyek
+|-- .gitignore          # Konfigurasi Pengabaian Berkas
+`-- README.md           # Dokumentasi Rekayasa & Panduan Teknis
 ```
 
 ---
