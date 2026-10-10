@@ -4,6 +4,9 @@ Platform web kesehatan mental terpadu untuk remaja Indonesia, dibangun di atas a
 
 Proyek ini dikembangkan secara spesifik untuk kompetisi pengembang web tingkat lanjut (Senior Developer Competition) dengan tolok ukur keunggulan rekayasa perangkat lunak tanpa ketergantungan pustaka pihak ketiga.
 
+- Live Demo (Vercel Production): [https://ruang-tenang-henna.vercel.app](https://ruang-tenang-henna.vercel.app)
+- Repositori GitHub: [https://github.com/RaffaRizqi/RuangTenang](https://github.com/RaffaRizqi/RuangTenang)
+
 ---
 
 ## 1. Latar Belakang & Konteks Produk
