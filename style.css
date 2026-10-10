@@ -386,9 +386,29 @@ main {
 }
 
 .btn-arrow {
-  font-family: var(--font-mono);
-  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   line-height: 1;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-svg {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.icon-close {
+  width: 18px;
+  height: 18px;
 }
 
 .dashboard-section {
