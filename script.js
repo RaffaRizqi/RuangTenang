@@ -91,6 +91,7 @@ function initHomeModule() {
       };
       entries.unshift(newEntry);
       if (saveJournalEntries(entries)) {
+        quickBtns.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
         feedback.textContent = `Suasana hati "${mood}" tersimpan ke perangkatmu. Buka menu Jurnal untuk melihat tren emosimu.`;
       }
     });
@@ -244,7 +245,17 @@ function initBreathingModule() {
     exerciseStatus.textContent = 'Berjalan';
     note.textContent = 'Fokus pada aliran napasmu. Jangan memaksakan diri bila dada terasa sesak atau pusing.';
 
-    applyPhase(0);
+    if (secondsRemaining <= 0) {
+      applyPhase(0);
+    } else {
+      const tech = TECHNIQUES[currentKey];
+      const phase = tech.phases[phaseIndex];
+      circle.className = `breathing-circle ${phase.cssClass}`;
+      phaseText.textContent = phase.label;
+      timerText.textContent = String(secondsRemaining);
+      phaseGuide.textContent = phase.guide;
+      highlightStepCell(phaseIndex);
+    }
     mainInterval = window.setInterval(timerTick, 1000);
     elapsedInterval = window.setInterval(() => {
       totalElapsed += 1;
@@ -272,6 +283,8 @@ function initBreathingModule() {
 
   function resetSession() {
     stopBreathing();
+    phaseIndex = 0;
+    secondsRemaining = 0;
     completedCycles = 0;
     totalElapsed = 0;
     cycleCounter.textContent = '0 Siklus';
@@ -468,10 +481,13 @@ function initJournalModule() {
         const mergedMap = new Map();
         [...valid, ...current].forEach(item => mergedMap.set(item.id, item));
         const merged = Array.from(mergedMap.values()).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-        saveJournalEntries(merged);
-        showFeedback(`Berhasil memulihkan ${valid.length} catatan dari file.`, 'is-success');
-        renderEntriesFeed();
-        renderMoodChart();
+        if (saveJournalEntries(merged)) {
+          showFeedback(`Berhasil memulihkan ${valid.length} catatan dari file.`, 'is-success');
+          renderEntriesFeed();
+          renderMoodChart();
+        } else {
+          showFeedback('Penyimpanan browser penuh. Gagal memulihkan catatan.', 'is-error');
+        }
       } catch {
         showFeedback('File JSON tidak valid atau rusak.', 'is-error');
       }

@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
-
 :root {
   color-scheme: light;
   --page: #F7F9F6;
@@ -525,13 +523,6 @@ main {
   padding: clamp(20px, 3.5vw, 36px);
   display: flex;
   flex-direction: column;
-}
-
-.breathing-workbench-panel,
-.analytics-panel,
-.vault-panel,
-.pfa-panel {
-  border-color: var(--line-strong);
 }
 
 .panel-topline {
@@ -1380,6 +1371,10 @@ textarea::placeholder {
   padding-bottom: 60px;
 }
 
+.pfa-panel {
+  background: var(--surface);
+}
+
 .pfa-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1403,6 +1398,7 @@ textarea::placeholder {
   color: var(--sage);
 }
 
+.pfa-step-card h3,
 .pfa-step-card h4 {
   font-family: var(--font-sans);
   font-size: 14px;
