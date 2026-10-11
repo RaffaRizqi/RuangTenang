@@ -2,7 +2,7 @@
 
 Platform web kesehatan mental terpadu untuk remaja Indonesia, dibangun di atas arsitektur web murni (zero-dependency vanilla stack) dengan prinsip privasi penuh di sisi klien, aksesibilitas universal (WCAG 2.1 AA), dan arah desain Swiss Industrial Print.
 
-Proyek ini dikembangkan secara spesifik untuk kompetisi pengembang web tingkat lanjut (Senior Developer Competition) dengan tolok ukur keunggulan rekayasa perangkat lunak tanpa ketergantungan pustaka pihak ketiga.
+Proyek ini dikembangkan dengan tolok ukur keunggulan rekayasa perangkat lunak tingkat lanjut tanpa ketergantungan pustaka pihak ketiga (zero-dependency vanilla architecture).
 
 - Live Demo: [https://www.ruangtenang.biz.id/](https://www.ruangtenang.biz.id/)
 - Repositori GitHub: [https://github.com/RaffaRizqi/RuangTenang](https://github.com/RaffaRizqi/RuangTenang)
@@ -172,9 +172,9 @@ node --check sw.js
 
 ---
 
-## 8. Rubrik Evaluasi Juri
+## 8. Ringkasan Standar Kualitas Teknis
 
-| Aspek Penilaian | Bukti Implementasi pada Proyek |
+| Aspek Kualitas | Bukti Implementasi pada Proyek |
 |---|---|
 | Kualitas Rekayasa Kode | Nol pustaka eksternal, modular vanilla JS, penanganan error defensif pada seluruh I/O lokal |
 | Performa & Kecepatan Muat | Ukuran berkas sangat ringan (<70 KB total), First Contentful Paint mendekati 0ms, Service Worker cache-first |
